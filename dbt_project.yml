@@ -2,7 +2,7 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
+name: 'jaffe_shop'
 version: '1.0.0'
 config-version: 2
 
@@ -32,8 +32,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  learn-dbt:
+  jaffle_shop:
+    +enabled: true
     staging:
-      materialized: view
+        +enabled: true
+        +materialized: view
     marts:
-      materialized: table
+      core:
+        +enabled: true
+        +materialized: table
